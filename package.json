@@ -1,0 +1,16 @@
+{
+  "name": "capturio",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "develop:webapp": "yarn workspace @project/webapp develop",
+    "clean:webapp": "yarn workspace @project/webapp clean",
+    "run:ui-stories": "yarn workspace @project/ui-components storybook"
+  },
+  "devDependencies": {
+    "lerna": "^3.20.2"
+  },
+  "workspaces": ["packages/*"]
+}
