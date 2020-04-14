@@ -3,5 +3,5 @@ import {Recorder} from '../index';
 
 export default { title: 'Recorder' };
 
-export const withText = () =>  <Recorder />;
+export const withDefaultLayout = () =>  <Recorder />;
 
