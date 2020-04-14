@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useReducer } from "react"
 import styled from "styled-components"
 
-import RecorderControls from "./RecorderControls"
+import {RecorderControls} from "@project/ui-components";
 import { recorderReducer } from "./reducers"
 import {
   RECORDER_DATA_AVAILABLE,
@@ -114,10 +114,12 @@ const Recorder = props => {
 
   return (
     <>
+      {/*
       <p>
         This example shows you the contents of the selected part of your
         display. Click the Start Capture button to begin.
       </p>
+      */}
       <RecorderControls
         onStartRecorder={() => setRecordingStatus(REC_STATUS_ON_REQUESTED)}
         onStopRecorder={() => setRecordingStatus(REC_STATUS_OFF_REQUESTED)}
