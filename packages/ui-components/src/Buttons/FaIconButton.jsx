@@ -8,16 +8,29 @@ const Container = styled.div`
   flex-direction: row;
   padding: 0.4rem;
   margin: 0.4rem;
-  border: 2px solid palevioletred;
   border-radius: 5px;
+  text-decoration: none;
+  border: 2px solid palevioletred;
   background: white;
   color: palevioletred;
-  text-decoration: none;
   &:hover {
-    background: palevioletred;
-    border: 2px solid palevioletred;
-    color: white;
+      background: palevioletred;
+      border: 2px solid palevioletred;
+      color: white;
   }
+`;
+
+const DisabledContainer = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding: 0.4rem;
+  margin: 0.4rem;
+  border-radius: 5px;
+  text-decoration: none;
+  border: 2px solid gray;
+  background: lightgray;
+  color: gray;
 `;
 
 const Label = styled.span`
@@ -29,13 +42,25 @@ const Label = styled.span`
 `;
 
 const FaIconButton = props => {
-  const { onClick, faIcon, label } = props;
-  return (
-    <Container onClick={onClick}>
-      <FontAwesomeIcon icon={faIcon} />
-      <Label>{label}</Label>
-    </Container>
-  );
+  const { onClick, faIcon, label, isDisabled } = props;
+  
+  if(isDisabled){
+    return (
+      <DisabledContainer>
+        <FontAwesomeIcon icon={faIcon} />
+        <Label>{label}</Label>
+      </DisabledContainer>
+    );
+  }
+  else{
+    return (
+      <Container onClick={onClick}>
+        <FontAwesomeIcon icon={faIcon} />
+        <Label>{label}</Label>
+      </Container>
+    );
+  }
+
 };
 
 export default FaIconButton;

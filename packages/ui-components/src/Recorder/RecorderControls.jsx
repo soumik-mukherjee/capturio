@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useReducer } from "react";
 import styled from "styled-components";
 import {
   faDownload,
@@ -9,6 +9,7 @@ import {
   faCameraRetro
 } from "@fortawesome/free-solid-svg-icons";
 import { FaIconButton, ToggleButton } from "@project/ui-components";
+import { recorderControlsReducer } from "./reducers";
 
 const Container = styled.span`
   display: flex;
@@ -24,30 +25,74 @@ const ElasticSpacer = styled.div`
   flex-grow: 1;
 `;
 
+const InitialState = {
+  recordButton: { isDisabled: false },
+  stopButton: { isDisabled: true },
+  srcMicButton: { isDisabled: false },
+  srcCamButton: { isDisabled: false },
+  srcScreenButton: { isDisabled: false },
+  downloadButton: { isDisabled: true }
+};
 const RecorderControls = props => {
   const {
     onStartRecorder,
     onStopRecorder,
     downloadUrl,
-    isDownloadReady
+    isDownloadReady,
+    onToggleMic,
+    onToggleScreen,
+    onToggleCam
   } = props;
+
+  const [state, dispatch] = useReducer(recorderControlsReducer, InitialState);
+
+  const handleClick_RecordOn = () => {
+    dispatch({
+      type: "RECORD_ON"
+    });
+    onStartRecorder;
+  };
+
+  const handleClick_RecordOff = () => {
+    dispatch({
+      type: "RECORD_OFF"
+    });
+    onStopRecorder;
+  };
 
   return (
     <Container>
       <FaIconButton
-        onClick={onStartRecorder}
+        onClick={handleClick_RecordOn}
         faIcon={faCircle}
         label="Record"
+        isDisabled={state.recordButton.isDisabled}
       />
       <FaIconButton
-        onClick={onStopRecorder}
+        onClick={handleClick_RecordOff}
         faIcon={faStopCircle}
         label="Stop"
+        isDisabled={state.stopButton.isDisabled}
       />
       <ElasticSpacer />
-      <ToggleButton onClick={() => null} faIcon={faTv} label="Screen" />
-      <ToggleButton onClick={() => null} faIcon={faCameraRetro} label="Cam" />
-      <ToggleButton onClick={() => null} faIcon={faMicrophone} label="Mic" />
+      <ToggleButton
+        onClick={onToggleScreen}
+        faIcon={faTv}
+        label="Screen"
+        isDisabled={state.srcScreenButton.isDisabled}
+      />
+      <ToggleButton
+        onClick={onToggleCam}
+        faIcon={faCameraRetro}
+        label="Cam"
+        isDisabled={state.srcCamButton.isDisabled}
+      />
+      <ToggleButton
+        onClick={onToggleMic}
+        faIcon={faMicrophone}
+        label="Mic"
+        isDisabled={state.srcMicButton.isDisabled}
+      />
       <ElasticSpacer />
       <FaIconButton
         id="download"
@@ -56,34 +101,8 @@ const RecorderControls = props => {
         download="test.webm"
         faIcon={faDownload}
         label="Download"
+        isDisabled={state.downloadButton.isDisabled ^ isDownloadReady}
       />
-      {/*
-      <Button id="start" onClick={onStartRecorder}>
-        <FontAwesomeIcon icon={faCircle} />
-        <Label>Record</Label>
-      </Button>
-      <Button id="stop" onClick={onStopRecorder}>
-        <FontAwesomeIcon icon={faStopCircle} /> <Label>Stop</Label>
-      </Button>
-      <ElasticSpacer />
-      <Label>Sources</Label>
-      <ToggleButton id="srcScreen">
-        <FontAwesomeIcon icon={faTv} />
-        <Label>Screen</Label>
-      </ToggleButton>
-      <ToggleButton id="srcCam">
-        <FontAwesomeIcon icon={faCameraRetro} />
-        <Label>Cam</Label>
-      </ToggleButton>
-      <ToggleButton id="srcMic">
-        <FontAwesomeIcon icon={faMicrophone} />
-        <Label>Mic</Label>
-      </ToggleButton>
-      <ElasticSpacer />
-      <Button id="download" as="a" href={downloadUrl} download="test.webm">
-        <FontAwesomeIcon icon={faDownload} /> <Label>Download</Label>
-      </Button>
-      */}
     </Container>
   );
 };

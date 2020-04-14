@@ -29,18 +29,36 @@ export const simpleButtonsWithIcons = () => (
       onClick={e => console.log("Click Handled, from FaIconButton!")}
       faIcon={faCircle}
       label="Record"
+      isDisabled={false}
     />
     <FaIconButton
       onClick={e => console.log("Click Handled, from FaIconButton!")}
       faIcon={faStopCircle}
       label="Stop"
+      isDisabled={false}
+    />
+    <FaIconButton
+      onClick={e => console.log("Click Handled, from FaIconButton!")}
+      faIcon={faTv}
+      label="Disabled Button"
+      isDisabled={true}
     />
   </SimpleIconButtonContainer>
 );
 export const toggleButtonWithIcon = () => (
-  <ToggleButton
-    onClick={() => console.log("Click Handled, from ToggleButton!")}
-    faIcon={faMicrophone}
-    label="Mic"
-  />
+  <SimpleIconButtonContainer>
+    <ToggleButton
+      onClick={() => console.log("Click Handled, from ToggleButton!")}
+      faIcon={faMicrophone}
+      label="Mic"
+      isDisabled={false}
+    />
+
+    <ToggleButton
+      onClick={() => console.log("Click Handled, from ToggleButton!")}
+      faIcon={faCameraRetro}
+      label="Disabled Toggle"
+      isDisabled={true}
+    />
+  </SimpleIconButtonContainer>
 );
