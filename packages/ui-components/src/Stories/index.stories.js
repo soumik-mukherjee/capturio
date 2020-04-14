@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '@storybook/react/demo';
 
-export default { title: 'Button' };
+export default { title: 'SB Demo' };
 
 export const withText = () => <Button>Hello Button</Button>;
 
