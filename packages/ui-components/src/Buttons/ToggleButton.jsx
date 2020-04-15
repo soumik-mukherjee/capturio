@@ -11,13 +11,13 @@ const Container = styled.div`
   margin: 0.4rem;
   border: 2px solid palevioletred;
   border-radius: 5px;
-  background: ${props => props.bg};
-  color: ${props => props.fg};
+  background: ${(props) => props.bg};
+  color: ${(props) => props.fg};
   text-decoration: none;
   &:hover {
-    background: ${props => props.fg};
+    background: ${(props) => props.fg};
     border: 2px solid palevioletred;
-    color: ${props => props.bg};
+    color: ${(props) => props.bg};
   }
 `;
 
@@ -45,19 +45,19 @@ const Label = styled.span`
 const InitialState = {
   isSelected: false,
   fg: "palevioletred",
-  bg: "white"
+  bg: "white",
 };
 
-const ToggleButton = props => {
+const ToggleButton = (props) => {
   const [state, dispatch] = useReducer(toogleButtonReducer, InitialState);
   const { onClick, faIcon, label, isDisabled } = props;
 
-  const handleClick = e => {
+  const handleClick = (e) => {
     dispatch({
-      type: "TOGGLE_BUTTON_SELECTION"
+      type: "TOGGLE_BUTTON_SELECTION",
     });
-    let {isSelected} = state;
-    let data = {...e, isSelected};
+    let { isSelected } = state;
+    let data = { ...e, isSelected };
     onClick(data);
   };
 
