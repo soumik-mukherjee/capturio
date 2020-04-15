@@ -1,11 +1,4 @@
----
-name: Bugfix Changes
-about: Propose code changes to fix a bug
-title: ''
-labels: ''
-assignees: ''
 Fixes #.
----
 
 **Describe the changes proposed**
 Changes proposed in this bugfix PR

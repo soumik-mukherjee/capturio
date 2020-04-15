@@ -1,11 +1,4 @@
----
-name: Feature Changes
-about: Propose code changes to deliver new feature
-title: ''
-labels: ''
-assignees: ''
 Resolves #.
----
 
 **Describe the changes proposed**
 Changes proposed in this feature PR
