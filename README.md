@@ -4,7 +4,7 @@ A PWA for video production - screencasts, voice overs and camera integration. Ze
 
 ## Install Guide
 
-Just open the app in a browser. PWAs can be installed on the desktop as well, see the support article by Google [here](https://support.google.com/chrome/answer/9658361), on how.
+Just open the app in a browser. PWAs can be installed on the desktop as well, see [this](https://support.google.com/chrome/answer/9658361) support article by Google, on how.
 
 More release channels targetted for future, e.g. windows store etc.
 
@@ -29,7 +29,7 @@ Simply set the sources using the buttons at the top & center, `Mic`, `Screen` an
 First, please familiarise yourself with the repo structure. This is a `lerna` monorepo, with two projects within:
 
 - A `gatsby+react` web app, located in `packages/webapp`
-- A `react` UI component library, located in `packages/webapp`
+- A `react+storybook` UI component library, located in `packages/ui-components`
 
 The `component library` comes bundled with [storybook](https://storybook.js.org/). You can run the storybook server and check live edits to any components that you do.
 
