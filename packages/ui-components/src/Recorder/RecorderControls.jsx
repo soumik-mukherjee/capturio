@@ -50,14 +50,14 @@ const RecorderControls = props => {
     dispatch({
       type: "RECORD_ON"
     });
-    onStartRecorder;
+    onStartRecorder();
   };
 
   const handleClick_RecordOff = () => {
     dispatch({
       type: "RECORD_OFF"
     });
-    onStopRecorder;
+    onStopRecorder();
   };
 
   return (
