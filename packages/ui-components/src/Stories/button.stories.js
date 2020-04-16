@@ -48,14 +48,14 @@ export const simpleButtonsWithIcons = () => (
 export const toggleButtonWithIcon = () => (
   <SimpleIconButtonContainer>
     <ToggleButton
-      onClick={() => console.log("Click Handled, from ToggleButton!")}
+      onToggle={(e) => console.log("Mic ToggleButton.onToggle isSelected:" + e.isSelected.toString())}
       faIcon={faMicrophone}
       label="Mic"
       isDisabled={false}
     />
 
     <ToggleButton
-      onClick={() => console.log("Click Handled, from ToggleButton!")}
+      onToggle={(e) => console.log("Cam ToggleButton.onToggle isSelected:" + e.isSelected.toString())}
       faIcon={faCameraRetro}
       label="Disabled Toggle"
       isDisabled={true}

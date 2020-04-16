@@ -14,9 +14,9 @@ const Container = styled.div`
   background: white;
   color: palevioletred;
   &:hover {
-      background: palevioletred;
-      border: 2px solid palevioletred;
-      color: white;
+    background: palevioletred;
+    border: 2px solid palevioletred;
+    color: white;
   }
 `;
 
@@ -41,18 +41,17 @@ const Label = styled.span`
   }
 `;
 
-const FaIconButton = props => {
+const FaIconButton = (props) => {
   const { onClick, faIcon, label, isDisabled } = props;
-  
-  if(isDisabled){
+
+  if (isDisabled) {
     return (
       <DisabledContainer>
         <FontAwesomeIcon icon={faIcon} />
         <Label>{label}</Label>
       </DisabledContainer>
     );
-  }
-  else{
+  } else {
     return (
       <Container onClick={onClick}>
         <FontAwesomeIcon icon={faIcon} />
@@ -60,7 +59,6 @@ const FaIconButton = props => {
       </Container>
     );
   }
-
 };
 
 export default FaIconButton;
