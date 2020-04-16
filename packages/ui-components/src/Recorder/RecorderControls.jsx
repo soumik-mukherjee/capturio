@@ -76,19 +76,19 @@ const RecorderControls = (props) => {
       />
       <ElasticSpacer />
       <ToggleButton
-        onClick={onToggleScreen}
+        onToggle={onToggleScreen}
         faIcon={faTv}
         label="Screen"
         isDisabled={state.srcScreenButton.isDisabled}
       />
       <ToggleButton
-        onClick={onToggleCam}
+        onToggle={onToggleCam}
         faIcon={faCameraRetro}
         label="Cam"
         isDisabled={state.srcCamButton.isDisabled}
       />
       <ToggleButton
-        onClick={onToggleMic}
+        onToggle={onToggleMic}
         faIcon={faMicrophone}
         label="Mic"
         isDisabled={state.srcMicButton.isDisabled}
