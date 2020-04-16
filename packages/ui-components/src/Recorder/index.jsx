@@ -174,7 +174,7 @@ const Recorder = (props) => {
         isDownloadReady={state.isDownloadReady}
         downloadUrl={state.downloadUrl}
       />
-      <Player id="video" ref={setPlayerRef} autoPlay />
+      <Player id="video" ref={setPlayerRef} autoPlay muted controls/>
       <br />
     </>
   );
