@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useEffect } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { toogleButtonReducer } from "./reducers";
@@ -50,16 +50,21 @@ const InitialState = {
 
 const ToggleButton = (props) => {
   const [state, dispatch] = useReducer(toogleButtonReducer, InitialState);
-  const { onClick, faIcon, label, isDisabled } = props;
+  const { onToggle, faIcon, label, isDisabled } = props;
 
   const handleClick = (e) => {
     dispatch({
       type: "TOGGLE_BUTTON_SELECTION",
     });
-    let { isSelected } = state;
-    let data = { ...e, isSelected };
-    onClick(data);
   };
+
+  useEffect(() => {
+    let { isSelected } = state;
+    if (typeof onToggle === 'function'){
+      onToggle({ isSelected });
+    }
+    
+  }, [state.isSelected]);
 
   if (isDisabled) {
     return (
