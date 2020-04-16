@@ -1,5 +1,5 @@
 import React from "react";
-import { FaIconButton, ToggleButton } from "@project/ui-components";
+import { FaIconButton, ToggleButton, FaIconLink } from "@project/ui-components";
 import {
   faDownload,
   faCircle,
@@ -59,6 +59,18 @@ export const toggleButtonWithIcon = () => (
       faIcon={faCameraRetro}
       label="Disabled Toggle"
       isDisabled={true}
+    />
+  </SimpleIconButtonContainer>
+);
+
+export const LinkWithIcon = () => (
+  <SimpleIconButtonContainer>
+    <FaIconLink
+      faIcon={faDownload}
+      label="Download "
+      isDisabled={false}
+      href="https://www.thehindu.com/society/yhmwnu/article26855911.ece/ALTERNATES/FREE_660/hym16fido-dido"
+      download="fido.jpg"
     />
   </SimpleIconButtonContainer>
 );

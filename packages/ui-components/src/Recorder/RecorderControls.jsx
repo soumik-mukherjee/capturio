@@ -6,9 +6,9 @@ import {
   faStopCircle,
   faTv,
   faMicrophone,
-  faCameraRetro
+  faCameraRetro,
 } from "@fortawesome/free-solid-svg-icons";
-import { FaIconButton, ToggleButton } from "@project/ui-components";
+import { FaIconButton, ToggleButton, FaIconLink } from "@project/ui-components";
 import { recorderControlsReducer } from "./reducers";
 
 const Container = styled.span`
@@ -31,9 +31,9 @@ const InitialState = {
   srcMicButton: { isDisabled: false },
   srcCamButton: { isDisabled: false },
   srcScreenButton: { isDisabled: false },
-  downloadButton: { isDisabled: true }
+  downloadButton: { isDisabled: true },
 };
-const RecorderControls = props => {
+const RecorderControls = (props) => {
   const {
     onStartRecorder,
     onStopRecorder,
@@ -41,21 +41,21 @@ const RecorderControls = props => {
     isDownloadReady,
     onToggleMic,
     onToggleScreen,
-    onToggleCam
+    onToggleCam,
   } = props;
 
   const [state, dispatch] = useReducer(recorderControlsReducer, InitialState);
 
   const handleClick_RecordOn = () => {
     dispatch({
-      type: "RECORD_ON"
+      type: "RECORD_ON",
     });
     onStartRecorder();
   };
 
   const handleClick_RecordOff = () => {
     dispatch({
-      type: "RECORD_OFF"
+      type: "RECORD_OFF",
     });
     onStopRecorder();
   };
@@ -94,14 +94,13 @@ const RecorderControls = props => {
         isDisabled={state.srcMicButton.isDisabled}
       />
       <ElasticSpacer />
-      <FaIconButton
+      <FaIconLink
         id="download"
-        as="a"
-        href={downloadUrl}
-        download="test.webm"
         faIcon={faDownload}
         label="Download"
         isDisabled={state.downloadButton.isDisabled ^ isDownloadReady}
+        href={downloadUrl}
+        download="recording.webm"
       />
     </Container>
   );
