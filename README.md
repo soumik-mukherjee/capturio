@@ -35,11 +35,28 @@ The `component library` comes bundled with [storybook](https://storybook.js.org/
 
 To run the `storybook` server, execute from the repo root dir
 
-> yarn run:ui-stories
+```bash
+$ yarn run:ui-stories
+```
 
-To run the `gatsby` app, execute from the repo root dir
+To run a `development` server with the `gatsby` app, execute from the repo root dir
 
-> yarn develop:webapp
+```bash
+$ yarn develop:webapp
+```
+
+To build the `gatsby` web app, i.e. `production` build (this creates the html, css and js bundles in the `packages/webapp/public` folder), execute from the repo root dir
+
+```bash
+$ yarn build:webapp
+```
+
+You can also run a local server to check out your `production` build, with
+
+```bash
+$ yarn serve:webapp
+```
+
 
 ### Submitting PRs
 
