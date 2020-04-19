@@ -9,10 +9,10 @@ steps:
       - --keyring=capturio-keyring
       - --key=cloudbuild-env-config
   # Install yarn dependencies
-  - name: node:12.6.2
+  - name: node:12.16.2
     entrypoint: yarn
     args: ['install']
   # Build
-  - name: node:12.6.2
+  - name: node:12.16.2
     entrypoint: yarn
     args: ["build:webapp"]
