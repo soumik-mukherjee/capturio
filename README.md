@@ -4,7 +4,7 @@ A PWA for video production - screencasts, voice overs and camera integration. Ze
 
 ## Install Guide
 
-Just open the app in a browser. PWAs can be installed on the desktop as well, see [this](https://support.google.com/chrome/answer/9658361) support article by Google, on how.
+This web app s hosted at : https://capturio.soumikmukherjee.dev. To use it, just open the app in a browser. PWAs can be installed on the desktop as well, see [this](https://support.google.com/chrome/answer/9658361) support article by Google, on how.
 
 More release channels targetted for future, e.g. windows store etc.
 
@@ -57,6 +57,32 @@ You can also run a local server to check out your `production` build, with
 $ yarn serve:webapp
 ```
 
+### CICD
+The project supports a [Google Cloud Build](https://cloud.google.com/cloud-build) based CICD pipeline to deploy to [Firebase hosting](https://firebase.google.com/docs/hosting). The `cloudbuild.yaml` file models the pipeline.
+
+To trigger the pipeline, do the following:
+
+1. Use `yarn version` to bump the version numbers. Follow `semver`. You should have the following setup before doing this as well
+
+```bash
+$ yarn config set version-sign-git-tag true (Optional, only if you want signed tags)
+$ yarn config set version-tag-prefix "v"
+$ yarn config set version-git-tag true  
+```
+
+then do (e.g. below if you are releasing a `minor` version update)
+
+```bash
+$ yarn version --minor
+```
+
+This will bump the minor version number on your `package.json` (root) and also create a git tag (an annotated one).
+
+2. Push the git tag to remote, using
+
+```bash
+$ git push origin v1.1.0
+```
 
 ### Submitting PRs
 
