@@ -6,13 +6,18 @@ steps:
       - --ciphertext-file=.env.enc
       - --plaintext-file=.env
       - --location=global
-      - --keyring=myproject
-      - --key=cloudbuild-env
+      - --keyring=capturio-keyring
+      - --key=cloudbuild-env-config
   # Install yarn dependencies
-  - name: "gcr.io/cloud-builders/yarn"
+  - name: node:12.16.2
+    entrypoint: yarn
+    args: ['install']
   # Build
-  - name: "gcr.io/cloud-builders/yarn"
+  - name: node:12.16.2
+    entrypoint: yarn
     args: ["build:webapp"]
   # Deploy
-  - name: "gcr.io/cloud-builders/yarn"
+  - name: node:12.16.2
+    entrypoint: yarn
     args: ["deploy"]
+
