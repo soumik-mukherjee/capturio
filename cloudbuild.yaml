@@ -16,3 +16,8 @@ steps:
   - name: node:12.16.2
     entrypoint: yarn
     args: ["build:webapp"]
+  # Deploy
+  - name: node:12.16.2
+    entrypoint: yarn
+    args: ["deploy"]
+
