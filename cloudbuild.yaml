@@ -9,7 +9,7 @@ steps:
       - --keyring=capturio-keyring
       - --key=cloudbuild-env-config
   # Install yarn dependencies
-  - name: "gcr.io/cloud-builders/yarn"
+  - name: "gcr.io/cloud-builders/yarn:12.16.1"
   # Build
-  - name: "gcr.io/cloud-builders/yarn"
+  - name: "gcr.io/cloud-builders/yarn:12.16.1"
     args: ["build:webapp"]
