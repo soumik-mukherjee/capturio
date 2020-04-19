@@ -1,6 +1,6 @@
 {
   "name": "capturio",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "index.js",
   "license": "MIT",
   "private": true,
@@ -10,10 +10,12 @@
     "run:ui-stories": "yarn workspace @project/ui-components storybook",
     "build:webapp": "yarn workspace @project/webapp build",
     "serve:webapp": "yarn workspace @project/webapp serve",
-    "deploy" : "firebase deploy --token \"$FIREBASE_TOKEN\""
+    "deploy": "firebase deploy --token \"$FIREBASE_TOKEN\""
   },
   "devDependencies": {
     "lerna": "^3.20.2"
   },
-  "workspaces": ["packages/*"]
+  "workspaces": [
+    "packages/*"
+  ]
 }
