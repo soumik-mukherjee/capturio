@@ -13,6 +13,3 @@ steps:
   # Build
   - name: "gcr.io/cloud-builders/yarn"
     args: ["build:webapp"]
-  # Deploy
-  - name: "gcr.io/cloud-builders/yarn"
-    args: ["deploy"]
